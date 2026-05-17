@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CLI_H
+#define CLI_H
 #include "../formatter/formatter.h"
 #include <stdbool.h>
 
@@ -14,3 +15,4 @@ typedef struct {
 int cli_parse_args(cli_options_t *opts, int argc, char **argv);
 
 int cli_run(const cli_options_t *opts);
+#endif /* CLI_H */

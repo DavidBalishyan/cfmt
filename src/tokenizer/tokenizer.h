@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TOKENIZER_H
+#define TOKENIZER_H
 #include "token.h"
 #include "../utils/buffer.h"
 #include <stdbool.h>
@@ -31,3 +32,4 @@ token_array_t tokenize(const char *source, size_t source_len);
 void token_array_free(token_array_t *arr);
 
 bool is_c_keyword(const char *s, size_t n);
+#endif /* TOKENIZER_H */

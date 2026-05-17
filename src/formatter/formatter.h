@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FORMATTER_H
+#define FORMATTER_H
 #include "../tokenizer/token.h"
 #include "../utils/buffer.h"
 #include <stdbool.h>
@@ -49,3 +50,4 @@ typedef struct {
 void formatter_init(formatter_t *f, token_t *tokens, size_t count, buffer_t *out, format_config_t config);
 
 void formatter_run(formatter_t *f);
+#endif /* FORMATTER_H */

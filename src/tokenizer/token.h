@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TOKEN_H
+#define TOKEN_H
 #include <stddef.h>
 
 typedef enum {
@@ -13,3 +14,4 @@ typedef struct {
 } token_t;
 
 const char *token_type_name(token_type_t type);
+#endif /* TOKEN_H */

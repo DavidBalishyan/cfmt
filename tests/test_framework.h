@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEST_FRAMEWORK_H
+#define TEST_FRAMEWORK_H
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -53,3 +54,4 @@ static int tests_failed = 0;
     printf("\n%d tests run, %d passed, %d failed\n", \
            tests_run, tests_run - tests_failed, tests_failed); \
 } while(0)
+#endif /* TEST_FRAMEWORK_H */
