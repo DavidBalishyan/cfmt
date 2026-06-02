@@ -23,40 +23,43 @@ static void trim_trailing(char *s) {
     }
 }
 
-static bool parse_bool(const char *s)
-{
+static bool parse_bool(const char *s) {
     return strcmp(s, "true") == 0 || strcmp(s, "1") == 0;
 }
 
 static bool parse_config_line(char *line, format_config_t *config) {
     char *eq = strchr(line, '=');
     if (!eq) return false;
-    size_t key_len = (size_t)(eq - line);
+    size_t key_len =(size_t)(eq - line);
     char *val_start = eq + 1;
-    while (*val_start == ' ' || *val_start == '\t') val_start++;
+    while (*val_start == ' '|| *val_start == '\t') val_start++;
     trim_trailing(val_start);
-    while (key_len > 0 && (line[key_len - 1] == ' ' || line[key_len - 1] == '\t'))
-        key_len--;
+    while (key_len > 0 &&(line[key_len - 1] == ' '|| line[key_len - 1] == '\t')) key_len--;
     if (key_len == 12 && strncmp(line, "indent_width", 12) == 0) {
         config->indent_width = atoi(val_start);
         return true;
     }
+
     if (key_len == 14 && strncmp(line, "max_line_width", 14) == 0) {
         config->max_line_width = atoi(val_start);
         return true;
     }
+
     if (key_len == 15 && strncmp(line, "brace_same_line", 15) == 0) {
         config->brace_same_line = parse_bool(val_start);
         return true;
     }
+
     if (key_len == 12 && strncmp(line, "pointer_left", 12) == 0) {
         config->pointer_left = parse_bool(val_start);
         return true;
     }
+
     if (key_len == 7 && strncmp(line, "no_tabs", 7) == 0) {
         config->no_tabs = parse_bool(val_start);
         return true;
     }
+
     return false;
 }
 
@@ -261,3 +264,4 @@ int cli_run(const cli_options_t *opts) {
     if (job.error_count > 0) return 1;
     return 0;
 }
+

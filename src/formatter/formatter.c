@@ -329,6 +329,7 @@ void formatter_run(formatter_t *f) {
                     emit_indent(f);
                 }
             }
+
             emit_token_text(f, tok->start, tok->length);
             f->brace_depth++;
             f->in_decl = false;
