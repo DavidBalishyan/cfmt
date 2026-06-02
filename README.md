@@ -526,4 +526,4 @@ RUN_TEST(test_my_feature);
 
 ## License
 
-MIT
+[GPL-3.0](LICENSE)
